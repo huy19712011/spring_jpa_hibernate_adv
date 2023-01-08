@@ -2,6 +2,7 @@ package com.example.spring_jpa_hibernate_adv.repository;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -25,8 +26,10 @@ class JpqlTest {
     @Test
     void jPQL_basic() {
 
+//        Query query = em.createQuery("SELECT c from Course c");
+        Query query = em.createNamedQuery("query_get_all_courses");
         List resultList =
-                em.createQuery("SELECT c from Course c").getResultList();
+                query.getResultList();
 
         logger.info("SELECT c from Course c -> {}", resultList);
     }
@@ -34,7 +37,8 @@ class JpqlTest {
     @Test
     void jPQL_typed() {
 
-        TypedQuery<Course> query = em.createQuery("SELECT c from Course c", Course.class);
+//        TypedQuery<Course> query = em.createQuery("SELECT c from Course c", Course.class);
+        TypedQuery<Course> query = em.createNamedQuery("query_get_all_courses", Course.class);
         List<Course> resultList = query.getResultList();
 
         logger.info("SELECT c from Course c -> {}", resultList);
@@ -43,7 +47,8 @@ class JpqlTest {
     @Test
     void jPQL_where() {
 
-        TypedQuery<Course> query = em.createQuery("SELECT c from Course c where name like '%Spring%'", Course.class);
+//        TypedQuery<Course> query = em.createQuery("SELECT c from Course c where name like '%Spring%'", Course.class);
+        TypedQuery<Course> query = em.createNamedQuery("query_get_all_courses_where", Course.class);
         List<Course> resultList = query.getResultList();
 
         logger.info("SELECT c from Course c -> {}", resultList);
