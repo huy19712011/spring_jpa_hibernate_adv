@@ -35,4 +35,18 @@ class CourseRepositoryTest {
         repository.deleteById(10002L);
         assertNull(repository.findById(10002L));
     }
+
+    @Test
+    void save() {
+
+        Course course = repository.findById(10001L);
+        assertEquals("Learn Spring", course.getName());
+
+        course.setName("Learn Spring - Updated");
+        repository.save(course);
+
+        Course courseUpdated = repository.findById(10001L);
+        assertEquals("Learn Spring - Updated", courseUpdated.getName());
+
+    }
 }
