@@ -28,6 +28,8 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
         Course course = repository.findById(10001L);
         logger.info("Course 10001 -> {}", course);
 
+        repository.save(new Course("Unit testing"));
+
         // repository.deleteById(10001L); // only for testing
     }
 }
