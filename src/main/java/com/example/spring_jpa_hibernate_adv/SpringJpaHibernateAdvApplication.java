@@ -31,5 +31,7 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
         repository.save(new Course("Unit testing"));
 
         // repository.deleteById(10001L); // only for testing
+
+        repository.playWithEntityManager();
     }
 }
