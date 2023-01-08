@@ -49,4 +49,10 @@ class CourseRepositoryTest {
         assertEquals("Learn Spring - Updated", courseUpdated.getName());
 
     }
+
+    @Test
+    void playWithEntityManager() {
+
+        repository.playWithEntityManager();
+    }
 }
