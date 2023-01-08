@@ -42,24 +42,17 @@ public class CourseRepository {
 
         logger.info("playWithEntityManager - start");
 
-        // Create a new thing
+        // Create a new thing when called em.persist()
         Course course = new Course("Web services");
         em.persist(course);
-//        em.flush();
-
-        course.setName("Web services - Updated"); // also update on database because @Transactional!!!
-//        em.flush();
-
         Course course2 = new Course("Angular");
         em.persist(course2);
+        em.flush();
 
-        em.flush();// Synchronize the persistence context to the underlying database, if not => do not work properly
-        em.detach(course2); // now no auto update course2 on database
-        em.detach(course); // now no auto update course2 on database
-//        em.clear();// ~ detach all
-
+        course.setName("Web services - Updated"); // also update on database because @Transactional!!!
         course2.setName("Angular - Updated");
-        course.setName("Web services - One More Updated");
+
+        em.refresh(course); // reverse course to previous state
 
         em.flush();
     }
