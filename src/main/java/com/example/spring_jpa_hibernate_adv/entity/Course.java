@@ -1,17 +1,17 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.slf4j.LoggerFactory;
 
 @Entity
+@Table(name = "course")
 public class Course {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    @Column(name = "name", nullable = false) // other properties on Column class!!! and we can set these values.
     private String name;
 
     public Course(String name) {
