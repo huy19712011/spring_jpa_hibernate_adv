@@ -1,4 +1,8 @@
-insert into course(id, name) values(10001, "Learn Spring");
-insert into course(id, name) values(10002, "Learn Spring Boot");
-insert into course(id, name) values(10003, "Learn Spring JPA");
-insert into course(id, name) values(10004, "Learn Spring Security");
+insert into course(id, name, created_date, last_updated_date)
+values(10001, "Learn Spring", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10002, "Learn Spring Boot", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10003, "Learn Spring JPA", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10004, "Learn Spring Security", current_timestamp(), current_timestamp());

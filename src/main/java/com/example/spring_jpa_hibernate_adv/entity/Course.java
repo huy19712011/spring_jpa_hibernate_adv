@@ -1,7 +1,11 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.slf4j.LoggerFactory;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "course")
@@ -13,6 +17,12 @@ public class Course {
 
     @Column(name = "name", nullable = false) // other properties on Column class!!! and we can set these values.
     private String name;
+
+    @UpdateTimestamp
+    private LocalDateTime lastUpdatedDate;
+
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 
     public Course(String name) {
         this.name = name;

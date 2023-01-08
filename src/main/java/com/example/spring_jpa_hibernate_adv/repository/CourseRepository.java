@@ -40,20 +40,10 @@ public class CourseRepository {
 
     public void playWithEntityManager() {
 
-        logger.info("playWithEntityManager - start");
-
-        // Create a new thing when called em.persist()
         Course course = new Course("Web services");
         em.persist(course);
-        Course course2 = new Course("Angular");
-        em.persist(course2);
-        em.flush();
 
-        course.setName("Web services - Updated"); // also update on database because @Transactional!!!
-        course2.setName("Angular - Updated");
-
-        em.refresh(course); // reverse course to previous state
-
-        em.flush();
+        Course course2 = findById(10001L);
+        course2.setName(course2.getName() + " - Updated");
     }
 }
