@@ -6,3 +6,29 @@ insert into course(id, name, created_date, last_updated_date)
 values(10003, "Learn Spring JPA", current_timestamp(), current_timestamp());
 insert into course(id, name, created_date, last_updated_date)
 values(10004, "Learn Spring Security", current_timestamp(), current_timestamp());
+
+
+insert into student(id, name)
+values(20001, "A");
+insert into student(id, name)
+values(20002, "B");
+insert into student(id, name)
+values(20003, "C");
+
+
+insert into passport(id, number)
+values(40001, "A123456");
+insert into passport(id, number)
+values(40002, "B123456");
+insert into passport(id, number)
+values(40003, "C123456");
+
+
+insert into review(id, rating, description)
+values(50001, "5", "Great course");
+insert into review(id, rating, description)
+values(50002, "4", "Wonderful course");
+insert into review(id, rating, description)
+values(50003, "5", "Awesome course");
+
+

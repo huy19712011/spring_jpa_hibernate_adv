@@ -25,13 +25,13 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Course course = repository.findById(10001L);
-        logger.info("Course 10001 -> {}", course);
+//        Course course = repository.findById(10001L);
+//        logger.info("Course 10001 -> {}", course);
 
-        repository.save(new Course("Unit testing"));
+//        repository.save(new Course("Unit testing"));
 
         // repository.deleteById(10001L); // only for testing
 
-        repository.playWithEntityManager();
+//        repository.playWithEntityManager();
     }
 }
