@@ -2,6 +2,7 @@ package com.example.spring_jpa_hibernate_adv;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.repository.CourseRepository;
+import com.example.spring_jpa_hibernate_adv.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,10 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private CourseRepository repository;
+    private CourseRepository courseRepository;
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringJpaHibernateAdvApplication.class, args);
@@ -33,5 +37,7 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
         // repository.deleteById(10001L); // only for testing
 
 //        repository.playWithEntityManager();
+
+        studentRepository.saveStudentWithPassport();
     }
 }
