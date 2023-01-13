@@ -1,9 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +13,9 @@ public class Student {
 
     @Column(nullable = false) // other properties on Column class!!! and we can set these values.
     private String name;
+
+    @OneToOne
+    private Passport passport;
 
     public Student(String name) {
         this.name = name;
