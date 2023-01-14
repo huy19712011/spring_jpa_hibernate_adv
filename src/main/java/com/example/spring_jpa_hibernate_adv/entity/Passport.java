@@ -1,9 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Passport {
@@ -14,6 +11,9 @@ public class Passport {
 
     @Column(nullable = false) // other properties on Column class!!! and we can set these values.
     private String number;
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport") // student is owning size, passport is non-owning side
+    private Student student;
 
     public Passport(String number) {
         this.number = number;
@@ -32,6 +32,14 @@ public class Passport {
 
     public void setNumber(String name) {
         this.number = name;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override
