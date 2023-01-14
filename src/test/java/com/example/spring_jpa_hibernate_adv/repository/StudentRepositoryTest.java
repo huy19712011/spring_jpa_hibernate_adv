@@ -1,6 +1,5 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
-import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
@@ -8,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,6 +22,14 @@ class StudentRepositoryTest {
 
     @Autowired
     EntityManager em;
+
+    @Test
+//    @Transactional // Persistant context
+    public void someTests() {
+        repository.someOperationsToUnderstandPersistenceContext();
+
+    }
+
 
     @Test
     @Transactional

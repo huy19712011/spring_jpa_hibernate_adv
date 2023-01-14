@@ -1,6 +1,5 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
-import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Passport;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -50,4 +49,22 @@ public class StudentRepository {
         em.remove(student);
     }
 
+    public void someOperationsToUnderstandPersistenceContext() {
+        // Retrieve student
+        Student student = em.find(Student.class, 20001L);
+        // Persistence context: student
+
+        // Retrieve passport
+        Passport passport = student.getPassport();
+        // Persistence context: student, passport
+
+        // Update passport
+        passport.setNumber("E1234567");
+        // Persistence context: student, passport+
+
+
+        // Update name
+        student.setName("AAA - Updated");
+        // Persistence context: student+, passport+
+    }
 }
