@@ -6,6 +6,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "course")
@@ -25,6 +27,9 @@ public class Course {
     @Column(name = "name", nullable = false) // other properties on Column class!!! and we can set these values.
     private String name;
 
+    @OneToMany(mappedBy = "course")
+    private List<Review> reviews = new ArrayList<>();
+
     @UpdateTimestamp
     private LocalDateTime lastUpdatedDate;
 
@@ -36,6 +41,19 @@ public class Course {
     }
 
     protected Course() {
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    // Note 2 custom methods here instead of setter!!!
+    public void addReview(Review review) {
+        this.reviews.add(review);
+    }
+
+    public void removeReview(Review review) {
+        this.reviews.remove(review);
     }
 
     public Long getId() {
