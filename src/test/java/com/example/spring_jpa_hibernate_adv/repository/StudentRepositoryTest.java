@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -25,6 +26,7 @@ class StudentRepositoryTest {
     EntityManager em;
 
     @Test
+    @Transactional
     void retrieveStudentAndPassport() {
 
         Student student = this.em.find(Student.class, 20001L);
