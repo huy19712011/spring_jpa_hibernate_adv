@@ -20,6 +20,12 @@ public class Student {
     private Passport passport;
 
     @ManyToMany
+    //following to create join table
+    // joinColumn - student_id
+    // inverseColumn - course_id
+    @JoinTable(name = "student_course",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courses = new ArrayList<>();
 
     public Student(String name) {
