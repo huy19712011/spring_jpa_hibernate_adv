@@ -38,6 +38,10 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
 
 //        repository.playWithEntityManager();
 
-        studentRepository.saveStudentWithPassport();
+//        studentRepository.saveStudentWithPassport();
+
+        courseRepository.addReviewsForCourse();
+
+
     }
 }
