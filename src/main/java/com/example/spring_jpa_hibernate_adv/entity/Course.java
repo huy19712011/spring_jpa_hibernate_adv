@@ -30,7 +30,7 @@ public class Course {
     @OneToMany(mappedBy = "course")
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "courses") // => course is non-owning side
     private List<Student> students = new ArrayList<>();
 
     @UpdateTimestamp
