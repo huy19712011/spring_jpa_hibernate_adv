@@ -1,12 +1,15 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
+import com.example.spring_jpa_hibernate_adv.entity.Review;
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,6 +20,9 @@ class CourseRepositoryTest {
 
     @Autowired
     CourseRepository repository;
+
+    @Autowired
+    EntityManager em;
 
     @Test
     void findById() {
@@ -54,5 +60,19 @@ class CourseRepositoryTest {
     void playWithEntityManager() {
 
         repository.playWithEntityManager();
+    }
+
+    @Test
+    @Transactional
+    public void retrieveReviewsForCourse() {
+        Course course = repository.findById(10001L);
+        logger.info("----> {}", course.getReviews());
+    }
+
+    @Test
+    @Transactional
+    public void retrieveCourseForReview() {
+        Review review = em.find(Review.class, 50001L);
+        logger.info("----> {}", review.getCourse());
     }
 }
