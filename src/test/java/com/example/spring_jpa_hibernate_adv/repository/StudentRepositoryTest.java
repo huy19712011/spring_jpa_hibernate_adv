@@ -1,5 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
+import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Passport;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -50,6 +51,24 @@ class StudentRepositoryTest {
 
         logger.info("Passport -> {}", passport);
         logger.info("Student -> {}", passport.getStudent());
+    }
+
+    @Test
+    @Transactional
+    void retrieveStudentAndCourse() {
+
+        Student student = em.find(Student.class, 20001L);
+        logger.info("student ---> {}", student);
+        logger.info("courses --> {}", student.getCourses());
+    }
+
+    @Test
+    @Transactional
+    void retrieveCourseAndStudent() {
+
+        Course course = em.find(Course.class, 10001L);
+        logger.info("course ---> {}", course);
+        logger.info("students --> {}", course.getStudents());
     }
 
 
