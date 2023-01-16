@@ -1,5 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
+import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Passport;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -66,5 +67,26 @@ public class StudentRepository {
         // Update name
         student.setName("AAA - Updated");
         // Persistence context: student+, passport+
+    }
+
+    public void insertHardcodedStudentAndCourse() {
+
+        Student student = new Student("Jack");
+        Course course = new Course("NodeJS");
+
+        student.addCourse(course);
+        course.addStudent(student);
+
+        em.persist(student);
+        em.persist(course);
+    }
+
+    public void insertStudentAndCourse(Student student, Course course) {
+
+        student.addCourse(course);
+        course.addStudent(student);
+
+        em.persist(student);
+        em.persist(course);
     }
 }

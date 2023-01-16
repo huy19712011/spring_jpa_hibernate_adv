@@ -1,6 +1,7 @@
 package com.example.spring_jpa_hibernate_adv;
 
-import com.example.spring_jpa_hibernate_adv.entity.Review;
+import com.example.spring_jpa_hibernate_adv.entity.Course;
+import com.example.spring_jpa_hibernate_adv.entity.Student;
 import com.example.spring_jpa_hibernate_adv.repository.CourseRepository;
 import com.example.spring_jpa_hibernate_adv.repository.StudentRepository;
 import org.slf4j.Logger;
@@ -9,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @SpringBootApplication
 public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
@@ -45,11 +43,15 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
 
 //        courseRepository.addHardCodeReviewsForCourse();
 
-        List<Review> reviews = new ArrayList<>();
-        reviews.add(new Review("5", "Review 1"));
-        reviews.add(new Review("5", "Review 2"));
+//        List<Review> reviews = new ArrayList<>();
+//        reviews.add(new Review("5", "Review 1"));
+//        reviews.add(new Review("5", "Review 2"));
+//
+//        courseRepository.addReviewsForCourse(10003L, reviews);
 
-        courseRepository.addReviewsForCourse(10003L, reviews);
+//        studentRepository.insertHardcodedStudentAndCourse();
+
+        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("NodeJS"));
 
 
     }

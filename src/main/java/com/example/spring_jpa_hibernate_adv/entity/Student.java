@@ -2,7 +2,6 @@ package com.example.spring_jpa_hibernate_adv.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class Student {
         return courses;
     }
 
-    public void addCourses(Course course) {
+    public void addCourse(Course course) {
         this.courses.add(course);
     }
 

@@ -3,7 +3,6 @@ package com.example.spring_jpa_hibernate_adv.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class Course {
         return students;
     }
 
-    public void addStudents(Student student) {
+    public void addStudent(Student student) {
         this.students.add(student);
     }
 
