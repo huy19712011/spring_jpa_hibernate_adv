@@ -1,8 +1,11 @@
 package com.example.spring_jpa_hibernate_adv;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
+import com.example.spring_jpa_hibernate_adv.entity.FullTimeEmployee;
+import com.example.spring_jpa_hibernate_adv.entity.PartTimeEmployee;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
 import com.example.spring_jpa_hibernate_adv.repository.CourseRepository;
+import com.example.spring_jpa_hibernate_adv.repository.EmployeeRepository;
 import com.example.spring_jpa_hibernate_adv.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
 
 @SpringBootApplication
 public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
@@ -21,6 +26,9 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringJpaHibernateAdvApplication.class, args);
@@ -51,8 +59,13 @@ public class SpringJpaHibernateAdvApplication implements CommandLineRunner {
 
 //        studentRepository.insertHardcodedStudentAndCourse();
 
-        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("NodeJS"));
+//        studentRepository.insertStudentAndCourse(new Student("Jack"), new Course("NodeJS"));
 
+
+        employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+        employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("5000")));
+
+        logger.info("all employees ---> {}", employeeRepository.retrieveAllEmployees());
 
     }
 }
