@@ -3,8 +3,7 @@ package com.example.spring_jpa_hibernate_adv.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE) //default
-@DiscriminatorColumn(name = "EmployeeType") // default => dtype
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Employee {
 
     @Id
