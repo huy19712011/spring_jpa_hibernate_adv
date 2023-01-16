@@ -64,4 +64,24 @@ class JpqlTest {
         logger.info("Result -> {}", resultList);
     }
 
+    @Test
+    void jPQL_courses_with_atleast_2_students() {
+
+        TypedQuery<Course> query = em.createQuery("SELECT c from Course c where size(c.students) >= 2", Course.class);
+
+        List<Course> resultList = query.getResultList();
+
+        logger.info("Result -> {}", resultList);
+    }
+
+    @Test
+    void jPQL_courses_order_by_students() {
+
+        TypedQuery<Course> query = em.createQuery("SELECT c from Course c order by size(c.students) desc", Course.class);
+
+        List<Course> resultList = query.getResultList();
+
+        logger.info("Result -> {}", resultList);
+    }
+
 }
