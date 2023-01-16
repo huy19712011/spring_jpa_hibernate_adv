@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -98,6 +99,36 @@ class JpqlTest {
         List<Student> resultList = query.getResultList();
 
         logger.info("Result -> {}", resultList);
+    }
+
+    //JOIN => select c, s from Course c JOIN c.students s
+    //LEFT JOIN => select c, s from Course c LEFT JOIN c.students s
+    //CROSS JOIN => select c, s from Course c, Student s
+
+    @Test
+    public void join(){
+
+        Query query = em.createQuery("select c, s from Course c JOIN c.students s");
+        List<Objects[]> resultList = query.getResultList();
+        logger.info("result size -> {}", resultList.size());
+        logger.info("result list  -> {}", resultList);
+//        for (var result: resultList) {
+//            logger.info("Course{} Student{}", result[0], result[1]);
+//            logger.info("result -> {}", result);
+//        }
+    }
+
+    @Test
+    public void left_join(){
+
+        Query query = em.createQuery("select c, s from Course c LEFT JOIN c.students s");
+        List<Objects[]> resultList = query.getResultList();
+        logger.info("result size -> {}", resultList.size());
+        logger.info("result list  -> {}", resultList);
+//        for (var result: resultList) {
+//            logger.info("Course{} Student{}", result[0], result[1]);
+//            logger.info("result -> {}", result);
+//        }
     }
 
 }
