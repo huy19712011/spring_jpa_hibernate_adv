@@ -1,8 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
-import com.example.spring_jpa_hibernate_adv.entity.Course;
-import com.example.spring_jpa_hibernate_adv.entity.Employee;
-import com.example.spring_jpa_hibernate_adv.entity.Review;
+import com.example.spring_jpa_hibernate_adv.entity.*;
 import jakarta.persistence.EntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +25,13 @@ public class EmployeeRepository {
     }
 
     // retrieve all employees
-    public List<Employee> retrieveAllEmployees() {
-        return em.createQuery("select e from Employee e", Employee.class).getResultList();
+    public List<PartTimeEmployee> retrieveAllPartTimeEmployees() {
+        return em.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
     }
 
-
+    public List<FullTimeEmployee> retrieveAllFullTimeEmployees() {
+        return em.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
+    }
 
 
 }

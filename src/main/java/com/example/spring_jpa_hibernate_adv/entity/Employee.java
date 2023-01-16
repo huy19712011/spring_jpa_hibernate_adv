@@ -2,8 +2,9 @@ package com.example.spring_jpa_hibernate_adv.entity;
 
 import jakarta.persistence.*;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@MappedSuperclass
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Employee {
 
     @Id
