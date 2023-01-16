@@ -1,6 +1,7 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
+import com.example.spring_jpa_hibernate_adv.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
@@ -80,6 +81,21 @@ class JpqlTest {
         TypedQuery<Course> query = em.createQuery("SELECT c from Course c order by size(c.students) desc", Course.class);
 
         List<Course> resultList = query.getResultList();
+
+        logger.info("Result -> {}", resultList);
+    }
+
+    @Test
+    void jPQL_students_with_passport_in_a_certain_pattern() {
+
+        TypedQuery<Student> query = em.createQuery("SELECT s from Student s where s.passport.number like '%1234%'", Student.class);
+
+        //like
+        //between 100 and 200
+        // is null
+        // upper, lower, trim, length
+
+        List<Student> resultList = query.getResultList();
 
         logger.info("Result -> {}", resultList);
     }
