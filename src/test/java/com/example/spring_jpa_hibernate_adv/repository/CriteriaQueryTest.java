@@ -7,6 +7,7 @@ import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -35,9 +36,9 @@ class CriteriaQueryTest {
         //2. Define roots for tables which are involved in query
         Root<Course> courseRoot = cq.from(Course.class);
 
-        //3. Define predicate etc using Creteria Builder
+        //3. Define predicate etc. using Criteria Builder
 
-        //4. Add predicate etc to the Criteria query
+        //4. Add predicate etc. to the Criteria query
 
         // 5. Build the TypedQuery using EntityManager and criteria query
 
@@ -47,6 +48,33 @@ class CriteriaQueryTest {
                 query.getResultList();
 
         logger.info("SELECT c from Course c -> {}", resultList);
+    }
+
+    @Test
+    void all_courses_having_web() {
+        // select c from Course c where name like %JPA
+
+        // 1. Use Criteria Builder to create a Criteria Query returning the result object
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+
+        //2. Define roots for tables which are involved in query
+        Root<Course> courseRoot = cq.from(Course.class);
+
+        //3. Define predicate etc. using Criteria Builder
+        Predicate likeJPA = cb.like(courseRoot.get("name"), "%JPA");
+
+        //4. Add predicate etc. to the Criteria query
+        cq.where(likeJPA);
+
+        // 5. Build the TypedQuery using EntityManager and criteria query
+
+        TypedQuery<Course> query = em.createQuery(cq.select(courseRoot));
+
+        List<Course> resultList =
+                query.getResultList();
+
+        logger.info("select c from Course c where name like %JPA -> {}", resultList);
     }
 
 
