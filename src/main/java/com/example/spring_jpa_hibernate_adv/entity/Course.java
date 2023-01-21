@@ -1,5 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -30,6 +31,7 @@ public class Course {
     private List<Review> reviews = new ArrayList<>();
 
     @ManyToMany(mappedBy = "courses") // => course is non-owning side
+    @JsonIgnore
     private List<Student> students = new ArrayList<>();
 
     @UpdateTimestamp
