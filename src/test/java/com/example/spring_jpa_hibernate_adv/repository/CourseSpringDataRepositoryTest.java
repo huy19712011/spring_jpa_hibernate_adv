@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,6 +52,17 @@ class CourseSpringDataRepositoryTest {
 
         logger.info("courses -> {}", repository.findAll());
         logger.info("count -> {}", repository.count());
+
+    }
+
+    @Test
+    public void sort() {
+
+        Sort sort = Sort.by(Sort.Direction.DESC, "name");
+        Sort sort2 = Sort.by(Sort.Direction.ASC, "name").and(Sort.by(Sort.Direction.ASC, "id")); // adding criteria to sort
+        logger.info("Sorted courses -> {}", repository.findAll(sort));
+        logger.info("Sorted courses -> {}", repository.findAll(sort2));
+
 
     }
 
