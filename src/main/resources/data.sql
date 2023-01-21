@@ -6,6 +6,16 @@ insert into course(id, name, created_date, last_updated_date)
 values(10003, "Learn Spring JPA", current_timestamp(), current_timestamp());
 insert into course(id, name, created_date, last_updated_date)
 values(10004, "Learn Spring Security", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10011, "Dummy1", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10012, "Dummy2", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10013, "Dummy3", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10014, "Dummy4", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date)
+values(10015, "Dummy5", current_timestamp(), current_timestamp());
 
 
 insert into passport(id, number)
