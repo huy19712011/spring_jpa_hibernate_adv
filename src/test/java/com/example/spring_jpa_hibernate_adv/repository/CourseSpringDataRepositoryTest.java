@@ -38,6 +38,19 @@ class CourseSpringDataRepositoryTest {
     }
 
     @Test
+    @Transactional
+    void findById_firstLevelCache_demo() {
+
+        Optional<Course> courseOptional = repository.findById(10001L);
+        logger.info("First courses retrieved -> {}", courseOptional.get());
+
+        Optional<Course> courseOptional2 = repository.findById(10001L);
+        logger.info("First courses again -> {}", courseOptional2.get());
+
+        assertTrue(courseOptional.isPresent());
+    }
+
+    @Test
     void findById_courseNotPresent() {
 
         Optional<Course> courseOptional = repository.findById(20001L);
