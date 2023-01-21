@@ -81,8 +81,22 @@ class CourseSpringDataRepositoryTest {
         Pageable pageable3 = nextPageable.next();
         Page<Course> page3 = repository.findAll(pageable3);
         logger.info("Page 3 -> {}", page3.getContent());
+    }
 
+    @Test
+    public void findUsingName() {
 
+        logger.info("findByName() -> {}", repository.findByName("Dummy4"));
+
+        logger.info("countByName() -> {}", repository.countByName("Dummy5"));
+
+        logger.info("findByNameOrderByIdDesc() -> {}", repository.findByNameOrderByIdDesc("Dummy5"));
+
+        logger.info("coursesWithSpring() -> {}", repository.coursesWithSpring());
+
+        logger.info("coursesWithSpringUsingNativeQuery() -> {}", repository.coursesWithSpringUsingNativeQuery());
+
+        logger.info("coursesWithSpringUsingNamedQuery() -> {}", repository.coursesWithSpringUsingNamedQuery());
     }
 
 

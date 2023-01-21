@@ -16,6 +16,9 @@ insert into course(id, name, created_date, last_updated_date)
 values(10014, "Dummy4", current_timestamp(), current_timestamp());
 insert into course(id, name, created_date, last_updated_date)
 values(10015, "Dummy5", current_timestamp(), current_timestamp());
+-- for testing countByName()
+insert into course(id, name, created_date, last_updated_date)
+values(10016, "Dummy5", current_timestamp(), current_timestamp());
 
 
 insert into passport(id, number)
