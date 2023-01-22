@@ -1,5 +1,6 @@
 package com.example.spring_jpa_hibernate_adv.repository;
 
+import com.example.spring_jpa_hibernate_adv.entity.Address;
 import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Passport;
 import com.example.spring_jpa_hibernate_adv.entity.Student;
@@ -41,6 +42,19 @@ class StudentRepositoryTest {
 
         logger.info("Student -> {}", student);
         logger.info("Passport -> {}", student.getPassport());
+    }
+
+    @Test
+    @Transactional
+    void setAddressDetails() {
+
+        Student student = this.em.find(Student.class, 20001L);
+
+        student.setAddress(new Address("line1", "line2", "Hanoi"));
+        em.flush();
+
+        logger.info("Student -> {}", student);
+        logger.info("Passport -> {}", student.getAddress());
     }
 
     @Test
