@@ -1,24 +1,24 @@
-insert into course(id, name, created_date, last_updated_date)
-values(10001, "Learn Spring", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10002, "Learn Spring Boot", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10003, "Learn Spring JPA", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10004, "Learn Spring Security", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10011, "Dummy1", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10012, "Dummy2", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10013, "Dummy3", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10014, "Dummy4", current_timestamp(), current_timestamp());
-insert into course(id, name, created_date, last_updated_date)
-values(10015, "Dummy5", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10001, "Learn Spring", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10002, "Learn Spring Boot", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10003, "Learn Spring JPA", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10004, "Learn Spring Security", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10011, "Dummy1", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10012, "Dummy2", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10013, "Dummy3", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10014, "Dummy4", current_timestamp(), current_timestamp(), false);
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10015, "Dummy5", current_timestamp(), current_timestamp(), false);
 -- for testing countByName()
-insert into course(id, name, created_date, last_updated_date)
-values(10016, "Dummy5", current_timestamp(), current_timestamp());
+insert into course(id, name, created_date, last_updated_date, is_deleted)
+values(10016, "Dummy5", current_timestamp(), current_timestamp(), false);
 
 
 insert into passport(id, number)
