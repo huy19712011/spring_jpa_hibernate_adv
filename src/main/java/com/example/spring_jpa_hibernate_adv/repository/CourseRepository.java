@@ -2,6 +2,7 @@ package com.example.spring_jpa_hibernate_adv.repository;
 
 import com.example.spring_jpa_hibernate_adv.entity.Course;
 import com.example.spring_jpa_hibernate_adv.entity.Review;
+import com.example.spring_jpa_hibernate_adv.entity.ReviewRating;
 import jakarta.persistence.EntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,8 +58,8 @@ public class CourseRepository {
         logger.info("course.getReviews() -> {}",course.getReviews());
 
         // add 2 reviews
-        Review review1 = new Review("5", "Review 1");
-        Review review2 = new Review("5", "Review 2");
+        Review review1 = new Review(ReviewRating.FIVE, "Review 1");
+        Review review2 = new Review(ReviewRating.FIVE, "Review 2");
 
         // setting the relationships
         course.addReview(review1);

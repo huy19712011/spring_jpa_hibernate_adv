@@ -39,11 +39,11 @@ values(20003, "C", 40003);
 
 
 insert into review(id, rating, description, course_id)
-values(50001, "5", "Great course", 10001);
+values(50001, "FIVE", "Great course", 10001);
 insert into review(id, rating, description, course_id)
-values(50002, "4", "Wonderful course", 10001);
+values(50002, "FOUR", "Wonderful course", 10001);
 insert into review(id, rating, description, course_id)
-values(50003, "5", "Awesome course", 10003);
+values(50003, "FIVE", "Awesome course", 10003);
 
 insert into student_course (student_id, course_id)
 values(20001, 10001);

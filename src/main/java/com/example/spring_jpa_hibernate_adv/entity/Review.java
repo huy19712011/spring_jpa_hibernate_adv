@@ -1,6 +1,13 @@
 package com.example.spring_jpa_hibernate_adv.entity;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Entity
 public class Review {
@@ -9,14 +16,14 @@ public class Review {
     @GeneratedValue
     private Long id;
 
-    private String rating;
+    private ReviewRating rating;
 
     private String description;
 
     @ManyToOne
     private Course course;
 
-    public Review(String rating, String description) {
+    public Review(ReviewRating rating, String description) {
 
         this.rating = rating;
         this.description = description;
@@ -45,11 +52,12 @@ public class Review {
         this.description = name;
     }
 
-    public String getRating() {
+    @Enumerated(EnumType.STRING) // default = EnumType.ORDINAL
+    public ReviewRating getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(ReviewRating rating) {
         this.rating = rating;
     }
 
